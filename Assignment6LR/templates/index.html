@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Car Price Predictor</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Car Price Prediction</h1>
+
+<form action="/predict" method="post">
+
+<input name="symboling" placeholder="Symboling">
+
+<select name="fueltype">
+<option value="gas">Gas</option>
+<option value="diesel">Diesel</option>
+</select>
+
+<select name="aspiration">
+<option value="std">Standard</option>
+<option value="turbo">Turbo</option>
+</select>
+
+<select name="doornumber">
+<option value="two">Two</option>
+<option value="four">Four</option>
+</select>
+
+<select name="carbody">
+<option value="sedan">Sedan</option>
+<option value="hatchback">Hatchback</option>
+<option value="wagon">Wagon</option>
+<option value="hardtop">Hardtop</option>
+<option value="convertible">Convertible</option>
+</select>
+
+<select name="drivewheel">
+<option value="fwd">FWD</option>
+<option value="rwd">RWD</option>
+<option value="4wd">4WD</option>
+</select>
+
+<select name="enginelocation">
+<option value="front">Front</option>
+<option value="rear">Rear</option>
+</select>
+
+<input name="wheelbase" placeholder="Wheelbase">
+<input name="carlength" placeholder="Car Length">
+<input name="carwidth" placeholder="Car Width">
+<input name="carheight" placeholder="Car Height">
+<input name="curbweight" placeholder="Curb Weight">
+
+<select name="enginetype">
+<option value="ohc">OHC</option>
+<option value="ohcf">OHCF</option>
+<option value="ohcv">OHCV</option>
+<option value="l">L</option>
+</select>
+
+<select name="cylindernumber">
+<option value="four">4</option>
+<option value="six">6</option>
+<option value="five">5</option>
+<option value="eight">8</option>
+</select>
+
+<input name="enginesize" placeholder="Engine Size">
+
+<select name="fuelsystem">
+<option value="mpfi">MPFI</option>
+<option value="2bbl">2BBL</option>
+<option value="1bbl">1BBL</option>
+</select>
+
+<input name="boreratio" placeholder="Bore Ratio">
+<input name="stroke" placeholder="Stroke">
+<input name="compressionratio" placeholder="Compression Ratio">
+<input name="horsepower" placeholder="Horsepower">
+<input name="peakrpm" placeholder="Peak RPM">
+<input name="citympg" placeholder="City MPG">
+<input name="highwaympg" placeholder="Highway MPG">
+
+<select name="brand">
+<option value="toyota">Toyota</option>
+<option value="honda">Honda</option>
+<option value="bmw">BMW</option>
+<option value="audi">Audi</option>
+<option value="mazda">Mazda</option>
+</select>
+
+<button type="submit">Predict Price</button>
+
+</form>
+
+<h2>{{ prediction_text }}</h2>
+
+</div>
+
+</body>
+</html>
