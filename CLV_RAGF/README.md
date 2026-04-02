@@ -169,13 +169,12 @@ streamlit run ui/app.py
 
 ## Login Credentials
 
-| Username | Password | Role | Access |
-|----------|----------|------|--------|
-| admin | admin123 | Admin | All 8 pages |
-| aditi | aditi123 | Admin | All 8 pages |
-| shreyas | shreyas123 | Admin | All 8 pages |
-| manager1 | manager123 | Manager | All pages except User Management restrictions |
-| viewer | view123 | Viewer | Dashboard + AI Advisor only |
+| Username | Password | Role |
+|----------|----------|------|
+| admin | admin123 | Admin |
+| product1 | product123 | ProductManager |
+| marketing1 | marketing123 | MarketingManager |
+
 
 **Change passwords** from the User Management page after first login.
 
@@ -183,20 +182,15 @@ streamlit run ui/app.py
 
 ## Role Permissions
 
-| Permission | Admin | Manager | Viewer |
+| Permission | Admin | ProductManager | MarketingManager |
 |-----------|-------|---------|--------|
 | Dashboard | ✅ | ✅ | ✅ |
-| CLV Predictor | ✅ | ✅ | ❌ |
+| CLV Predictor | ✅ | ❌ | ❌ |
 | Customer Search | ✅ | ✅ | ❌ |
-| Add Customer | ✅ | ✅ | ❌ |
 | What-If Simulator | ✅ | ✅ | ❌ |
 | AI Advisor | ✅ | ✅ | ✅ |
-| Model Metrics | ✅ | ✅ | ❌ |
-| User Management | ✅ | ✅ | ❌ |
-| Add new users | ✅ | ❌ | ❌ |
-| Delete admin accounts | ✅ | ❌ | ❌ |
-| Delete manager accounts | ✅ | ❌ | ❌ |
-| Delete viewer accounts | ✅ | ✅ | ❌ |
+| Model Metrics | ✅ | ❌ | ❌ |
+| Offer Management | ✅ | ✅ | ❌ |
 
 ---
 
