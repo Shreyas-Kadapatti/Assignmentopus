@@ -1,7 +1,5 @@
 # CLV Intelligence Platform
 
-**Team 6 — Aditi & Shreyas | BRD Project 5**
-
 An end-to-end AI platform for predicting Customer Lifetime Value, segmenting customers, recommending personalised offers, and answering business questions via a GenAI RAG chatbot — built with Python, Streamlit, scikit-learn, XGBoost, FAISS, Anthropic Claude, and MongoDB.
 
 ---
@@ -13,32 +11,33 @@ clv_vscode/
 │
 ├── data/
 │   └── generate_data.py          # Generates 100K synthetic customers
-│
+│   └── offers.json
 ├── models/
 │   ├── train_models.py            # Trains all ML models
 │   ├── predict.py                 # Single + batch inference
-│   └── personalization.py        # Offer recommendation engine
-│
+│   └── personalization.py         # Offer recommendation engine
+│   └── offer_manager.py           # Offer Manager
 ├── rag/
 │   ├── build_index.py             # Builds FAISS/NumPy vector index
 │   └── chatbot.py                 # RAG chatbot using Anthropic Claude
-│
+│   └── qa_memory.py
+|   └── qa_memory.json
+|
 ├── ui/
 │   ├── app.py                     # Main Streamlit app — run this
 │   ├── auth.py                    # Login system (MongoDB + credentials.json)
 │   ├── credentials.json           # Default user accounts (fallback)
 │   ├── page_search.py             # Customer Search page
 │   ├── page_simulator.py          # What-If Simulator page
-│   ├── page_add_customer.py       # Add Customer page
-│   ├── page_users.py              # User Management page
+│   ├── page_offers.py             # Add offers page
 │   └── style.css                  # Dark theme CSS
 │
 ├── .env.example                   # Copy to .env and fill in your keys
 ├── .gitignore                     # Files excluded from Git
 ├── requirements.txt               # Python dependencies
 ├── setup.py                       # First-time setup script
-├── seed_users.py                  # Seeds default users into MongoDB
-├── add_manager.py                 # Adds a manager account
+├── seed_users.py(optional)        # Seeds default users into MongoDB
+├── add_users.py                   # Adds a manager account
 └── README.md                      # This file
 ```
 
@@ -51,8 +50,8 @@ clv_vscode/
 | Python | 3.10, 3.11, or 3.12 | [python.org](https://python.org) |
 | VS Code | Any recent version | [code.visualstudio.com](https://code.visualstudio.com) |
 | Git | Any recent version | [git-scm.com](https://git-scm.com) |
-| MongoDB Atlas | Free tier | [mongodb.com/atlas](https://mongodb.com/atlas) |
-| Anthropic API Key | Free credits available | [console.anthropic.com](https://console.anthropic.com) |
+| MongoDB Atlas(Optional) | Free tier | [mongodb.com/atlas](https://mongodb.com/atlas) |
+| Anthropic API Key(Optional) | Free credits available | [console.anthropic.com](https://console.anthropic.com) |
 
 ---
 
@@ -98,7 +97,7 @@ This automatically:
 - Trains all ML models (~3-5 minutes)
 - Builds the RAG vector index
 
-### Step 5 — Create your .env file
+### Step 5 — Create your .env file(Optional)
 
 **Windows:**
 ```powershell
@@ -113,14 +112,14 @@ cp .env.example .env
 Open `.env` and fill in your keys:
 
 ```
-ANTHROPIC_API_KEY=sk-ant-...your-key-here...
-MONGO_URI=mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/CLV
+ANTHROPIC_API_KEY=sk-ant-...your-key-here...(OPTIONAL)
+MONGO_URI=mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/CLV(OPTIONAL)
 ```
 
 - Get Anthropic key: [console.anthropic.com](https://console.anthropic.com) → API Keys → Create Key
 - Get MongoDB URI: [mongodb.com/atlas](https://mongodb.com/atlas) → Free cluster → Connect → Drivers → copy connection string
 
-### Step 6 — Seed users into MongoDB
+### Step 6 — Seed users into MongoDB(OPTIONAL)
 
 ```powershell
 python seed_users.py
@@ -161,8 +160,8 @@ streamlit run ui/app.py
 | `python data/generate_data.py` | Generate 100K customer CSV | Once (or to regenerate) |
 | `python models/train_models.py` | Train all ML models | Once (or to retrain) |
 | `python rag/build_index.py` | Build RAG vector index | Once (or to rebuild) |
-| `python seed_users.py` | Add default users to MongoDB | Once |
-| `python add_manager.py` | Add manager account | Once |
+| `python seed_users.py` | Add default users to MongoDB (OPTIONAL)| Once |
+| `python add_users.py` | Adds Managers | Once |
 | `streamlit run ui/app.py` | Launch the dashboard | Every session |
 
 ---
