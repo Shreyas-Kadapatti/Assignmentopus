@@ -16,7 +16,8 @@ clv_vscode/
 │   ├── train_models.py            # Trains all ML models
 │   ├── predict.py                 # Single + batch inference
 │   └── personalization.py         # Offer recommendation engine
-│   └── offer_manager.py           # Offer Manager
+│   └── clustering_visualization.py
+|   └── offer_manager.py           # Offer Manager
 ├── rag/
 │   ├── build_index.py             # Builds FAISS/NumPy vector index
 │   └── chatbot.py                 # RAG chatbot using Anthropic Claude
